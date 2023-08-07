@@ -19,9 +19,10 @@ public class TestProductService {
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
-		Product product = new Product(1, "EyeMyEye", "Bluewith white rectangle  computer glasses", ProductCatagory.COMPUTER_GLASSES, 1100.0, "http://example.com/image.jpg" ,sideImgURL);
+		Product product = new Product(1, "Rayan", "Light Yellow colored  Metalic glasses", ProductCatagory.METALICS, 1150.0, "http://example.com/image.jpg" ,sideImgURL);
 		return product;
 	}
+	
 
     @Test
     public void testAddProduct() {
@@ -38,13 +39,13 @@ public class TestProductService {
     @Test
     public void testUpdateProduct() {
         
-       	Assertions.assertTrue(ProductService.updateProduct(validProduct(), 10));    
+       	Assertions.assertTrue(ProductService.updateProduct(validProduct(), 0));    
     }
     
     @Test
     public void testDeleteProduct() {
         try {
-        	Assertions.assertTrue(ProductService.deleteProduct(1));
+        	Assertions.assertTrue(ProductService.deleteProduct(0));
         } catch (IllegalArgumentException e) {
         	Assertions.fail("Unexpected exception thrown: " + e.getMessage());
         }

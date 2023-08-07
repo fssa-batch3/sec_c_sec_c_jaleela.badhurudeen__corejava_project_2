@@ -3,11 +3,15 @@ package com.fssa.specsee.validator;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import com.fssa.specsee.enums.ProductCatagory;
+import com.fssa.specsee.modelObjects.Product;
 
 public class TestProductValidator {
 
@@ -44,7 +48,7 @@ public class TestProductValidator {
 		// for invalid product name when the product name is under 2 letters or above 15
 		// letters
 		try {
-			ProductValidator.productNameValidator("a");
+			ProductValidator.productNameValidator("Nar");
 			Assertions.fail(ProductValidateErrors.PRODUCTNAMEFAILMSG);
 
 		} catch (IllegalArgumentException e) {
@@ -202,4 +206,26 @@ public class TestProductValidator {
 		}
 
 	}
+	
+	
+	// validate for getter and setters
+    
+    @Test
+    public void testValidationForGetterSetter() {
+    	String arrr[] = {"http://example.com/image.jpg"};
+		List<String> sideImgURL = new ArrayList<String>();
+		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
+		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
+		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
+		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
+    	Product product = new Product();
+    	product.setProductId(1);
+    	product.setProductName("Andale");
+    	product.setProductDescription(" Navy Blue color computer glass");
+    	product.setProductPrice(1110);
+    	product.setProductCatagory(ProductCatagory.METALICS);
+    	product.setProductMainImageUrl("https://iili.io/HrkUVp4.jpg");
+    	product.setProductSideImageURLs(sideImgURL);
+    }
+
 }

@@ -24,23 +24,23 @@ public class ProductDAO {
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
-// adding new product
+ //adding new product
 		Product product1 = new Product();
-		product1.setProductName("Neyan");
-		product1.setProductDescription("Classic Navy blue colored power glass");
-		product1.setProductPrice(1500);
+		product1.setProductName("Raybond");
+		product1.setProductDescription("Pink with Red color computer glass");
+		product1.setProductPrice(1500.0);
 		product1.setProductMainImageUrl("https://iili.io/HrkUhj2.jpg");
-		product1.setProductCatagory(ProductCatagory.POWER_GLASSES);
+		product1.setProductCatagory(ProductCatagory.COMPUTER_GLASSES);
 		
 		product1.setProductSideImageURLs(sideImgURL);
 		//addProduct(product1);
 		// deleteProduct(7);
 		
-		readProduct();
+		//readProduct();
 //		updateProduct(product, 3);
 //		findProductByName("nerdlane");
 		
-
+		//findProductByCategory(ProductCatagory.COMPUTER_GLASSES);
 		
 	}
 	
@@ -260,9 +260,9 @@ public class ProductDAO {
 			try (Connection connection = conectionUtil.getConnection()) {
 				String query = "select * from specsee.products join specsee.product_side_images on  productCatagory = ?";
 				try (PreparedStatement pst = connection.prepareStatement(query)) {
-					pst.setProductCatagory(1,ProductCatagory.POWER_GLASSES);
+					pst.setString(1, productCatagory.getCat());
 					try (ResultSet resultSet = pst.executeQuery()) {
-						if (resultSet.next()) {
+						while (resultSet.next()) {
 
 							System.out.println("id: " + resultSet.getInt(1));
 							System.out.println("product_name: " + resultSet.getString(2));
@@ -270,18 +270,21 @@ public class ProductDAO {
 							System.out.println("product_price: " + resultSet.getString(4));
 							System.out.println("product_main_image_url: " + resultSet.getString(5));
 							System.out.println("product category: " + resultSet.getString(6));
+							System.out.println("product sideimage1: " + resultSet.getString(9));
 
 						}
+						return true;
+
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();
 					throw new IllegalArgumentException(e);
 				}
 			}
-			return true;
 		}
 
 	
+		
 	
 	
 	

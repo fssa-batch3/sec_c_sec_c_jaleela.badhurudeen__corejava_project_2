@@ -26,11 +26,11 @@ public class ProductValidator {
 	// product name validation
 	public static boolean productNameValidator(String productName) throws IllegalArgumentException {
 
-		if (productName == null || "".equals(productName.trim().length() <=0  )) {
+		if (productName == null || "".equals(productName.trim())) {
 			throw new IllegalArgumentException(ProductValidateErrors.INVALID_PRODUCTNAME_NULL);
 		}
 // regex pattern for product name
-		String nameregex = "^[a-zA-Z]{2,15}$";
+		String nameregex = "^[a-zA-Z]{5,15}$";
 		Pattern pattern = Pattern.compile(nameregex);
 		Matcher matcher = pattern.matcher(productName);
 		Boolean isMatch = matcher.matches();
@@ -125,7 +125,7 @@ public class ProductValidator {
             return true; // All strings match the pattern
         }
 	
-	
+        
 	
 	
 	

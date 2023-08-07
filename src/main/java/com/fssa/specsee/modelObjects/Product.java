@@ -15,7 +15,7 @@ public class Product {
 	private List<String> productSideImageURLs;
 	public Product(int productId, String productName, String productDescription, ProductCatagory productCatagory,
 			double productPrice, String productMainImageUrl, List<String> productSideImageURLs) {
-		super();
+		super(); 
 		this.productId = productId;
 		this.productName = productName;
 		this.productDescription = productDescription;
