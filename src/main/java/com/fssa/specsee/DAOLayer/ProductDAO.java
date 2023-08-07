@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fssa.specsee.connections.conectionUtil;
+import com.fssa.specsee.connections.ConnectionUtil;
 import com.fssa.specsee.enums.ProductCatagory;
 import com.fssa.specsee.modelObjects.Product;
 import com.fssa.specsee.validator.ProductValidateErrors;
@@ -50,7 +50,7 @@ public class ProductDAO {
 	public static boolean addProduct(Product product) throws IllegalArgumentException {
 //	
 
-		try (Connection connection = conectionUtil.getConnection()) {
+		try (Connection connection = ConnectionUtil.getConnection()) {
 			String query = "INSERT INTO products(productName,productDescription,productPrice, productMainImageUrl,productCatagory) VALUES (?,?,?,?,?);";
 			try (PreparedStatement pst = connection.prepareStatement(query)) {
 				pst.setString(1, product.getProductName());
@@ -81,7 +81,7 @@ public class ProductDAO {
 		Connection connection = null;
 		try {
 			// Create update statement using task id
-			connection = conectionUtil.getConnection();
+			connection = ConnectionUtil.getConnection();
 			String query = "SELECT productId FROM products WHERE productName = ? ";
 			PreparedStatement pst = connection.prepareStatement(query);
 			pst.setString(1, name);
@@ -108,7 +108,7 @@ public class ProductDAO {
 		Connection connection = null;
 		try {
 			
-			connection = conectionUtil.getConnection();
+			connection = ConnectionUtil.getConnection();
 			
 			int id=getIdByProductName(product.getProductName());
 			for (String url : product.getProductSideImageURLs()) {
@@ -141,7 +141,7 @@ public class ProductDAO {
 //			throw new IllegalArgumentException("Invalid employee passed to DAO Layer", e);
 //		}
 
-		try (Connection connection = conectionUtil.getConnection()) {
+		try (Connection connection = ConnectionUtil.getConnection()) {
 			String query = "UPDATE products SET productName = ? WHERE productId = ?";
 			try (PreparedStatement pst = connection.prepareStatement(query)) {
 
@@ -171,7 +171,7 @@ public class ProductDAO {
 // for delete product
 	public static boolean deleteProduct(int productId) throws IllegalArgumentException {
 
-		try (Connection connection = conectionUtil.getConnection()) {
+		try (Connection connection = ConnectionUtil.getConnection()) {
 			String query = "DELETE FROM products WHERE productId = ?";
 			try (PreparedStatement pst = connection.prepareStatement(query)) {
 
@@ -197,7 +197,7 @@ public class ProductDAO {
 
 	public static boolean readProduct() throws IllegalArgumentException, SQLException {
 
-		try (Connection connection = conectionUtil.getConnection()) {
+		try (Connection connection = ConnectionUtil.getConnection()) {
 			String query = "SELECT * FROM products";
 			try (Statement statement = connection.createStatement()) {
 				try (ResultSet resultSet = statement.executeQuery(query)) { // this will run the query and return the
@@ -229,7 +229,7 @@ public class ProductDAO {
 	// for find by product name
 
 	public static boolean findProductByName(String productName) throws IllegalArgumentException, SQLException {
-		try (Connection connection = conectionUtil.getConnection()) {
+		try (Connection connection = ConnectionUtil.getConnection()) {
 			String query = "SELECT * FROM products WHERE productName = ?";
 			try (PreparedStatement pst = connection.prepareStatement(query)) {
 				pst.setString(1, productName);
@@ -257,7 +257,7 @@ public class ProductDAO {
 	// for find by product category
 
 		public static boolean findProductByCategory(ProductCatagory productCatagory) throws IllegalArgumentException, SQLException {
-			try (Connection connection = conectionUtil.getConnection()) {
+			try (Connection connection = ConnectionUtil.getConnection()) {
 				String query = "select * from specsee.products join specsee.product_side_images on  productCatagory = ?";
 				try (PreparedStatement pst = connection.prepareStatement(query)) {
 					pst.setString(1, productCatagory.getCat());
