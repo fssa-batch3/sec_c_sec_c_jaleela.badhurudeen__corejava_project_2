@@ -51,7 +51,7 @@ public class TestProductService {
 	@Test
 	public void testDeleteProduct() throws InvalidProductException, DAOException {
 		try {
-			Assertions.assertTrue(ProductService.deleteProduct(0));
+			Assertions.assertTrue(ProductService.deleteProduct(1));
 		} catch (InvalidProductException e) {
 			Assertions.fail("Unexpected exception thrown: " + e.getMessage());
 		}

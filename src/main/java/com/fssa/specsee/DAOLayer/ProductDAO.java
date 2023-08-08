@@ -35,7 +35,7 @@ public class ProductDAO {
 		product1.setProductCatagory(ProductCatagory.COMPUTER_GLASSES);
 
 		product1.setProductSideImageURLs(sideImgURL);
-		 addProduct(product1);
+		addProduct(product1);
 		// deleteProduct(7);
 
 		// readProduct();
@@ -105,10 +105,8 @@ public class ProductDAO {
 	}
 
 	public static boolean addImageUrl(Product product) throws InvalidProductException, SQLException {
-		Connection connection = null;
-		try {
-
-			connection = ConnectionUtil.getConnection();
+		
+		try (Connection connection = ConnectionUtil.getConnection()) {
 
 			int id = getIdByProductName(product.getProductName());
 			for (String url : product.getProductSideImageURLs()) {
@@ -122,11 +120,6 @@ public class ProductDAO {
 			return true;
 		} catch (SQLException e) {
 			throw new InvalidProductException("Error in adding  image urls ", e);
-		} finally {
-			// close connection
-			if (connection != null) {
-				connection.close();
-			}
 		}
 
 	}
@@ -246,13 +239,12 @@ public class ProductDAO {
 				throw new DAOException(e);
 			}
 		}
-		return true; 
+		return true;
 	}
 
 	// for find by product category
 
-	public static boolean findProductByCategory(ProductCatagory productCatagory)
-			throws DAOException, SQLException {
+	public static boolean findProductByCategory(ProductCatagory productCatagory) throws DAOException, SQLException {
 		try (Connection connection = ConnectionUtil.getConnection()) {
 			String query = "select * from specsee.products join specsee.product_side_images on  productCatagory = ?";
 			try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
