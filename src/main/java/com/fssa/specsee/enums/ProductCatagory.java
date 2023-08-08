@@ -10,7 +10,6 @@ public enum ProductCatagory {
 	ProductCatagory(String cat) {
 		this.category = cat;
 	}
-	
 
 	public String getCat() {
 
