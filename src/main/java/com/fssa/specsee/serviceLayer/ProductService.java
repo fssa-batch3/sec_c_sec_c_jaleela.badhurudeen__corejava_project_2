@@ -2,7 +2,7 @@ package com.fssa.specsee.serviceLayer;
 
 import java.sql.SQLException;
 
-import com.fssa.specsee.DAOLayer.ProductDAO;
+import com.fssa.specsee.daolayer.ProductDAO;
 import com.fssa.specsee.exceptions.DAOException;
 import com.fssa.specsee.exceptions.InvalidProductException;
 import com.fssa.specsee.modelObjects.Product;
