@@ -1,0 +1,1 @@
+package com.fssa.specsee.exceptions;

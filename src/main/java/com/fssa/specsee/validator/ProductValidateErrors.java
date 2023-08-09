@@ -23,11 +23,9 @@ public interface ProductValidateErrors {
 	public static final String PRODUCT_IMAGEURL_FAIL_MSG = "Validate product image URL failed";
 
 	public static final String CANNOT_ADD_PRODUCT = "you can't add product";
-	
+
 	// test service layer error messages
-	
+
 	public static final String TEST_INVALID_ADDPRODUCT_FAIL = "Invalid Add PRODUCT failed";
-
-
 
 }
