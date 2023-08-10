@@ -22,7 +22,7 @@ class TestProductService {
 	 */
 	public static Product validProduct() {
 		String arrr[] = { "http://example.com/image.jpg" };
-		List<String> sideImgURL = new ArrayList<String>();
+		List<String> sideImgURL = new ArrayList<String>(); 
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
@@ -63,12 +63,8 @@ class TestProductService {
 	 * Test method for deleting a product
 	 */
 	@Test
-	void testDeleteProduct() throws DAOException {
-		try {
-			Assertions.assertTrue(ProductService.deleteProduct(1));
-		} catch (InvalidProductException e) {
-			Assertions.fail("Unexpected exception thrown: " + e.getMessage());
-		}
+	void testDeleteProduct() throws DAOException, InvalidProductException {
+		Assertions.assertTrue(ProductService.deleteProduct(1));
 	}
 
 	/*
