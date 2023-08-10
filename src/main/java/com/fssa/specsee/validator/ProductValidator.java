@@ -7,8 +7,19 @@ import java.util.regex.Pattern;
 import com.fssa.specsee.exceptions.InvalidProductException;
 import com.fssa.specsee.modelobjects.Product;
 
-// validation for Product object
+/*
+ * Define the ProductValidator class for validating product objects
+ */
 public class ProductValidator {
+	private ProductValidator() {
+		/*
+		 * private constructor
+		 */
+	}
+
+	/*
+	 * Method to validate a Product object
+	 */
 	public static boolean validate(Product product) throws InvalidProductException {
 		if (product == null) {
 			throw new InvalidProductException(ProductValidateErrors.INVALID_PRODUCT_NULL);
@@ -23,17 +34,21 @@ public class ProductValidator {
 
 	}
 
-	// product name validation
+	/*
+	 * Method to validate product name
+	 */
 	public static boolean productNameValidator(String productName) throws InvalidProductException {
 
 		if (productName == null || "".equals(productName.trim())) {
 			throw new InvalidProductException(ProductValidateErrors.INVALID_PRODUCTNAME_NULL);
 		}
-// regex pattern for product name
+		/*
+		 * regex pattern for product name
+		 */
 		String nameregex = "^[a-zA-Z]{5,15}$";
 		Pattern pattern = Pattern.compile(nameregex);
 		Matcher matcher = pattern.matcher(productName);
-		Boolean isMatch = matcher.matches();
+		boolean isMatch = matcher.matches();
 
 		if (!isMatch) {
 			throw new InvalidProductException(ProductValidateErrors.INVALID_PRODUCTNAME);
@@ -44,14 +59,17 @@ public class ProductValidator {
 
 	}
 
-	// product description validation
-
+	/*
+	 * Method to validate product description
+	 */
 	public static boolean productDescriptionValidator(String productDescription) throws InvalidProductException {
 		if (productDescription == null || "".equals(productDescription.trim())) {
 			throw new InvalidProductException(ProductValidateErrors.INVALID_PRODUCTDESCRIPTION_NULL);
 		}
 
-		// regex pattern for product description
+		/*
+		 * regex pattern for product description
+		 */
 		String descregex = "^[a-zA-Z\\s]{10,100}$";
 		Pattern pattern = Pattern.compile(descregex);
 		Matcher matcher = pattern.matcher(productDescription);
@@ -64,8 +82,9 @@ public class ProductValidator {
 		}
 	}
 
-	// product price validation
-
+	/*
+	 * Method to validate product price
+	 */
 	public static boolean productPriceValidator(double productPrice) throws InvalidProductException {
 
 		if (productPrice < ProductValidateConstants.PRODUCT_PRICE) {
@@ -75,14 +94,17 @@ public class ProductValidator {
 		return true;
 	}
 
-	// product main image url validation
-
+	/*
+	 * Method to validate product main image url
+	 */
 	public static boolean productImageURLValidator(String productImageURL) throws InvalidProductException {
 		if (productImageURL == null) {
 			throw new InvalidProductException(ProductValidateErrors.INVALID_PRODUCT_IMAGE_URL_NULL);
 		}
 
-		// regex pattern to match url
+		/*
+		 * regex pattern to match url
+		 */
 		String imageurlregex = "(?i)\\b((https?|ftp)://)?[a-z0-9-]+(\\.[a-z0-9-]+)+([/?].*)?\\.(jpg|jpeg|gif|png|bmp)\\b";
 		Pattern pattern = Pattern.compile(imageurlregex);
 		Matcher matcher = pattern.matcher(productImageURL);
@@ -92,32 +114,45 @@ public class ProductValidator {
 			throw new InvalidProductException(ProductValidateErrors.INVALID_PRODUCT_IMAGE_URL);
 		}
 
-		return true; // Return true if the URL is valid
+		return true;
+		/*
+		 * Return true if the URL is valid
+		 */
 	}
 
-	// product side image url validation (list<String>) 
+	/*
+	 * Method to validate a list of product side image URLs
+	 */
 
-	// All strings in the list are valid
-
-	// regex pattern to match url
+	/*
+	 * regex pattern to match url
+	 */
 	public static boolean isValidList(List<String> stringList) throws InvalidProductException {
 
 		if (stringList == null || stringList.isEmpty()) {
 
 			throw new InvalidProductException(ProductValidateErrors.INVALID_PRODUCT_IMAGE_URL_NULL);
 		}
-		// Regular expression pattern
+		/*
+		 * Regular expression pattern
+		 */
 		String pattern = "(?i)\\b((https?|ftp)://)?[a-z0-9-]+(\\.[a-z0-9-]+)+([/?].*)?\\.(jpg|jpeg|gif|png|bmp)\\b";
 		Pattern regexPattern = Pattern.compile(pattern);
 
-		// Validate each string in the list
+		/*
+		 * Validate each string in the list
+		 */
 		for (String str : stringList) {
 			if (!regexPattern.matcher(str).matches()) {
 				return false; // If any string doesn't match, return false
 			}
 		}
 
-		return true; // All strings match the pattern
+		return true;
+
+		/*
+		 * All strings match the pattern
+		 */
 	}
 
 }

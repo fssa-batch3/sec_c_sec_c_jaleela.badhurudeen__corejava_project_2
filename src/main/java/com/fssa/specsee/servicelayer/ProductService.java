@@ -9,23 +9,36 @@ import com.fssa.specsee.modelobjects.Product;
 import com.fssa.specsee.validator.ProductValidator;
 
 public class ProductService {
-// to add a new product
+
+	private ProductService() {
+		/*
+		 * default constructor
+		 */
+	}
+
+	/*
+	 * Method to add a new product
+	 */
 	public static boolean addProduct(Product product) throws InvalidProductException {
 		if (ProductValidator.validate(product)) {
 			ProductDAO.addProduct(product);
 		}
-		return true; 
-	} 
+		return true;
+	}
 
-// to read a product
-	public static boolean readProduct() throws InvalidProductException, SQLException, DAOException {
+	/*
+	 * Method to read and display products
+	 */
+	public static boolean readProduct() throws SQLException, DAOException {
 		ProductDAO.readProduct();
 		return true;
 
 	}
 
-// to update a product 
-	public static boolean updateProduct(Product product, int id) throws InvalidProductException,DAOException {
+	/*
+	 * Method to update a product
+	 */
+	public static boolean updateProduct(Product product, int id) throws InvalidProductException, DAOException {
 		if (ProductValidator.validate(product)) {
 			ProductDAO.updateProduct(product, id);
 		}
@@ -33,16 +46,20 @@ public class ProductService {
 
 	}
 
-// to delete a product
-	public static boolean deleteProduct(int id) throws InvalidProductException,DAOException {
+	/*
+	 * Method to delete a product
+	 */
+	public static boolean deleteProduct(int id) throws InvalidProductException, DAOException {
 
 		ProductDAO.deleteProduct(id);
 		return true;
 
 	}
 
-// to find a product by their name
-	public static boolean findProductByName(String name) throws InvalidProductException, DAOException,SQLException {
+	/*
+	 * Method to find a product by its name
+	 */
+	public static boolean findProductByName(String name) throws InvalidProductException, DAOException, SQLException {
 		if (ProductValidator.productNameValidator(name)) {
 			ProductDAO.findProductByName(name);
 		}

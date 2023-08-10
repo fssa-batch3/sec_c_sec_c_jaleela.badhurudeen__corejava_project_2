@@ -7,14 +7,19 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import com.fssa.specsee.enums.ProductCatagory;
+import com.fssa.specsee.enums.ProductCategory;
 import com.fssa.specsee.exceptions.DAOException;
 import com.fssa.specsee.exceptions.InvalidProductException;
 import com.fssa.specsee.modelobjects.Product;
 import com.fssa.specsee.servicelayer.ProductService;
 
- class TestProductService { 
-// test for a valid product
+/*
+ * Define the test class for ProductService
+ */
+class TestProductService {
+	/*
+	 * Method to create a valid product for testing
+	 */
 	public static Product validProduct() {
 		String arrr[] = { "http://example.com/image.jpg" };
 		List<String> sideImgURL = new ArrayList<String>();
@@ -22,35 +27,43 @@ import com.fssa.specsee.servicelayer.ProductService;
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
-		Product product = new Product(1, "Rayan", "Light Yellow colored  Metalic glasses", ProductCatagory.METALICS,
+		Product product = new Product(1, "Rayan", "Light Yellow colored  Metalic glasses", ProductCategory.METALICS,
 				1150.0, "http://example.com/image.jpg", sideImgURL);
-		return product; 
+		return product;
 	}
 
-// test for add a valid product
+	/*
+	 * Test method for adding a valid product
+	 */
 	@Test
-	 void testAddProduct() throws InvalidProductException {
+	void testAddProduct() throws InvalidProductException {
 
 		Assertions.assertTrue(ProductService.addProduct(validProduct()));
 
 	}
 
-// test for read product
+	/*
+	 * Test method for reading products
+	 */
 	@Test
-	 void testReadProduct() throws SQLException, InvalidProductException, DAOException {
+	void testReadProduct() throws SQLException, InvalidProductException, DAOException {
 		Assertions.assertTrue(ProductService.readProduct());
 	}
 
-// test for update a product
+	/*
+	 * Test method for updating a product
+	 */
 	@Test
-	 void testUpdateProduct() throws InvalidProductException, DAOException {
+	void testUpdateProduct() throws InvalidProductException, DAOException {
 
 		Assertions.assertTrue(ProductService.updateProduct(validProduct(), 0));
 	}
 
-// test for delete a product
+	/*
+	 * Test method for deleting a product
+	 */
 	@Test
-	 void testDeleteProduct() throws InvalidProductException, DAOException {
+	void testDeleteProduct() throws DAOException {
 		try {
 			Assertions.assertTrue(ProductService.deleteProduct(1));
 		} catch (InvalidProductException e) {
@@ -58,9 +71,11 @@ import com.fssa.specsee.servicelayer.ProductService;
 		}
 	}
 
-// test for find as product by their name
+	/*
+	 * Test method for finding a product by its name
+	 */
 	@Test
-	 void testFindProductByName() throws InvalidProductException, DAOException {
+	void testFindProductByName() throws InvalidProductException, DAOException {
 		try {
 			Assertions.assertTrue(ProductService.findProductByName("Nerdlane"));
 		} catch (InvalidProductException | SQLException e) {
