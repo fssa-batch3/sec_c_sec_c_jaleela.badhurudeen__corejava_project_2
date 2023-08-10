@@ -26,7 +26,7 @@ public class ProductDAO {
 	 * main function
 	 */
 
-	public static void main(String[] args) throws InvalidProductException {
+	public static void main(String[] args) {
 		/*
 		 * adding a side image url
 		 */
@@ -67,11 +67,7 @@ public class ProductDAO {
 
 				addImageUrl(product);
 				Logger.info("Product Added");
-				if (rows > 0) {
-					return true;
-				} else {
-					return false;
-				}
+				return (rows > 0);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -145,11 +141,7 @@ public class ProductDAO {
 				int rows = preparedStatement.executeUpdate();
 				Logger.info("Product Updated");
 
-				if (rows > 0) {
-					return true;
-				} else {
-					return false;
-				}
+				return (rows > 0);
 
 			}
 		} catch (SQLException e) {
@@ -174,11 +166,7 @@ public class ProductDAO {
 				int rows = preparedStatement.executeUpdate();
 				Logger.info("Product Deleted");
 
-				if (rows > 0) {
-					return true;
-				} else {
-					return false;
-				}
+				return (rows > 0);
 			}
 		} catch (SQLException e) {
 

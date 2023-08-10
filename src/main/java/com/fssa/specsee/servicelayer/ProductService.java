@@ -49,7 +49,7 @@ public class ProductService {
 	/*
 	 * Method to delete a product
 	 */
-	public static boolean deleteProduct(int id) throws InvalidProductException, DAOException {
+	public static boolean deleteProduct(int id) throws DAOException {
 
 		ProductDAO.deleteProduct(id);
 		return true;
