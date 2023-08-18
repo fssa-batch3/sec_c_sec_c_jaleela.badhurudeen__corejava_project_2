@@ -1,26 +1,32 @@
-package com.fssa.specsee.modelObjects;
+package com.fssa.specsee.modelobjects;
 
 import java.util.List;
 
-import com.fssa.specsee.enums.ProductCatagory;
+import com.fssa.specsee.enums.ProductCategory;
 
+/*
+ *  Define the Product class to model product objects
+ */
 public class Product {
 
 	private int productId;
 	private String productName;
 	private String productDescription;
-	private ProductCatagory ProductCatagory;
+	private ProductCategory productCatagory;
 	private double productPrice;
 	private String productMainImageUrl;
 	private List<String> productSideImageURLs;
+	/*
+	 * Define a parameterized constructor to initialize product details
+	 */
 
-	public Product(int productId, String productName, String productDescription, ProductCatagory productCatagory,
+	public Product(int productId, String productName, String productDescription, ProductCategory productCatagory,
 			double productPrice, String productMainImageUrl, List<String> productSideImageURLs) {
 		super();
 		this.productId = productId;
 		this.productName = productName;
 		this.productDescription = productDescription;
-		this.ProductCatagory = productCatagory;
+		this.productCatagory = productCatagory;
 		this.productPrice = productPrice;
 		this.productMainImageUrl = productMainImageUrl;
 		this.productSideImageURLs = productSideImageURLs;
@@ -30,6 +36,9 @@ public class Product {
 		// TODO Auto-generated constructor stub
 	}
 
+	/*
+	 * Define getter and setter methods for each field
+	 */
 	public int getProductId() {
 		return productId;
 	}
@@ -54,12 +63,12 @@ public class Product {
 		this.productDescription = productDescription;
 	}
 
-	public ProductCatagory getProductCatagory() {
-		return ProductCatagory;
+	public ProductCategory getProductCatagory() {
+		return productCatagory;
 	}
 
-	public void setProductCatagory(ProductCatagory productCatagory) {
-		this.ProductCatagory = productCatagory;
+	public void setProductCatagory(ProductCategory productCatagory) {
+		this.productCatagory = productCatagory;
 	}
 
 	public double getProductPrice() {
