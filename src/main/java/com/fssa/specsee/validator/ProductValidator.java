@@ -142,7 +142,7 @@ public class ProductValidator {
 		 * Regular expression pattern
 		 */
 		
-		String pattern = "(http)?s?:?(\\/\\/[^\"']*\\.(?:png|jpg|jpeg|gif|png|svg|webp))";
+		String pattern = "(http)?s?:?(\\/\\/[^\"']*\\.(?:png|jpg|jpeg|gif|svg|webp))";
 		
 		/*
 		 * Validate each string in the list
