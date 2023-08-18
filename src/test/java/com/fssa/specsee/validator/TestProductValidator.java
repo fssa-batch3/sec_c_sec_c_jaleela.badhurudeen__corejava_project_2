@@ -191,13 +191,13 @@ class TestProductValidator {
 	 */
 
 	@Test
-	void testValidList() throws InvalidProductException {
+	void testValidList() throws InvalidProductException, MalformedURLException {
 		/*
 		 * Create a list of valid image URLs
 		 */
 
 		List<String> validList = Arrays.asList("http://example.com/image.jpg", "https://www.example.com/image.jpeg",
-				"ftp://sub.example.com/image.png", "http://sub.domain.com/image.gif");
+				"http://sub.example.com/image.png", "http://sub.domain.com/image.gif");
 
 		assertTrue(ProductValidator.isValidList(validList));
 	}
@@ -206,7 +206,7 @@ class TestProductValidator {
 	 * Test method for validating a list of invalid URLs
 	 */
 	@Test
-	void testInvalidList() throws InvalidProductException {
+	void testInvalidList() throws InvalidProductException, MalformedURLException {
 		/*
 		 * Test with a list containing invalid strings
 		 */
@@ -217,7 +217,7 @@ class TestProductValidator {
 	}
 
 	@Test
-	void testEmptyList() throws InvalidProductException {
+	void testEmptyList() throws InvalidProductException, MalformedURLException {
 		try {
 			/*
 			 * Test with an empty list

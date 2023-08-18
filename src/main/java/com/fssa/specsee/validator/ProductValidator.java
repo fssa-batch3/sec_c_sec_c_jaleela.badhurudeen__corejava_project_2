@@ -132,7 +132,7 @@ public class ProductValidator {
 	/*
 	 * regex pattern to match url
 	 */
-	public static boolean isValidList(List<String> stringList) throws InvalidProductException {
+	public static boolean isValidList(List<String> stringList) throws InvalidProductException,MalformedURLException {
 
 		if (stringList == null || stringList.isEmpty()) {
 
@@ -141,14 +141,14 @@ public class ProductValidator {
 		/*
 		 * Regular expression pattern
 		 */
-		String pattern = "(?i)\\b((https?|ftp)://)?[a-z0-9-]+(\\.[a-z0-9-]+)+([/?].*)?\\.(jpg|jpeg|gif|png|bmp)\\b";
-		Pattern regexPattern = Pattern.compile(pattern);
-
+		
+		String pattern = "(?i)\\b((https?|ftp)://)?[a-z0-9-]+(\\.[a-z0-9-]+)+([/?].*)?\\.(jpg|jpeg|gif|png|bmp|web)\\b";
+		
 		/*
 		 * Validate each string in the list
 		 */
 		for (String str : stringList) {
-			if (!regexPattern.matcher(str).matches()) {
+			if (!Pattern.matches(pattern, str)) {
 				return false; // If any string doesn't match, return false
 			}
 		}
