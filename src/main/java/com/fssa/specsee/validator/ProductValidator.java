@@ -110,7 +110,7 @@ public class ProductValidator {
 		 * regex pattern to match url
 		 */
 		UrlValidator validator = new UrlValidator();
-//		String imageurlregex = "(?i)\\b((https?|ftp)://)?[a-z0-9-]+(\\.[a-z0-9-]+)+([/?].*)?\\.(jpg|jpeg|gif|png|bmp)\\b";
+//		String imageurlregex = "(http)?s?:?(\\/\\/[^\"']*\\.(?:png|jpg|jpeg|gif|png|svg|webp))";
 //		Pattern pattern = Pattern.compile(imageurlregex);
 //		Matcher matcher = pattern.matcher(productImageURL);
 		boolean isMatch = validator.isValid(productImageURL);
