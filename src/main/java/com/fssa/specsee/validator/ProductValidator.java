@@ -1,12 +1,20 @@
 package com.fssa.specsee.validator;
-
+import java.net.MalformedURLException;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+<<<<<<< Updated upstream
 import com.fssa.specsee.exceptions.InvalidProductException;
 import com.fssa.specsee.modelobjects.Product;
 
+=======
+import org.apache.commons.validator.routines.UrlValidator;
+
+import com.fssa.specsee.exceptions.InvalidProductException;
+import com.fssa.specsee.modelobjects.Product;
+
+>>>>>>> Stashed changes
 /*
  * Define the ProductValidator class for validating product objects
  */
@@ -20,7 +28,11 @@ public class ProductValidator {
 	/*
 	 * Method to validate a Product object
 	 */
+<<<<<<< Updated upstream
 	public static boolean validate(Product product) throws InvalidProductException {
+=======
+	public static boolean validate(Product product) throws InvalidProductException, MalformedURLException {
+>>>>>>> Stashed changes
 		if (product == null) {
 			throw new InvalidProductException(ProductValidateErrors.INVALID_PRODUCT_NULL);
 
@@ -97,7 +109,11 @@ public class ProductValidator {
 	/*
 	 * Method to validate product main image url
 	 */
+<<<<<<< Updated upstream
 	public static boolean productImageURLValidator(String productImageURL) throws InvalidProductException {
+=======
+	public static boolean productImageURLValidator(String productImageURL) throws InvalidProductException,MalformedURLException {
+>>>>>>> Stashed changes
 		if (productImageURL == null) {
 			throw new InvalidProductException(ProductValidateErrors.INVALID_PRODUCT_IMAGE_URL_NULL);
 		}
@@ -105,10 +121,18 @@ public class ProductValidator {
 		/*
 		 * regex pattern to match url
 		 */
+<<<<<<< Updated upstream
 		String imageurlregex = "(?i)\\b((https?|ftp)://)?[a-z0-9-]+(\\.[a-z0-9-]+)+([/?].*)?\\.(jpg|jpeg|gif|png|bmp)\\b";
 		Pattern pattern = Pattern.compile(imageurlregex);
 		Matcher matcher = pattern.matcher(productImageURL);
 		boolean isMatch = matcher.matches();
+=======
+		UrlValidator validator = new UrlValidator();
+//		String imageurlregex = "(?i)\\b((https?|ftp)://)?[a-z0-9-]+(\\.[a-z0-9-]+)+([/?].*)?\\.(jpg|jpeg|gif|png|bmp)\\b";
+//		Pattern pattern = Pattern.compile(imageurlregex);
+//		Matcher matcher = pattern.matcher(productImageURL);
+		boolean isMatch = validator.isValid(productImageURL);
+>>>>>>> Stashed changes
 
 		if (!isMatch) {
 			throw new InvalidProductException(ProductValidateErrors.INVALID_PRODUCT_IMAGE_URL);

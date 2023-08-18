@@ -1,5 +1,9 @@
 package com.fssa.specsee.servicelayer;
 
+<<<<<<< Updated upstream
+=======
+import java.net.MalformedURLException;
+>>>>>>> Stashed changes
 import java.sql.SQLException;
 
 import com.fssa.specsee.daolayer.ProductDAO;
@@ -19,7 +23,11 @@ public class ProductService {
 	/*
 	 * Method to add a new product
 	 */
+<<<<<<< Updated upstream
 	public static boolean addProduct(Product product) throws InvalidProductException {
+=======
+	public static boolean addProduct(Product product) throws InvalidProductException, MalformedURLException {
+>>>>>>> Stashed changes
 		if (ProductValidator.validate(product)) {
 			ProductDAO.addProduct(product);
 		}
@@ -38,7 +46,11 @@ public class ProductService {
 	/*
 	 * Method to update a product
 	 */
+<<<<<<< Updated upstream
 	public static boolean updateProduct(Product product, int id) throws InvalidProductException, DAOException {
+=======
+	public static boolean updateProduct(Product product, int id) throws InvalidProductException, DAOException, MalformedURLException {
+>>>>>>> Stashed changes
 		if (ProductValidator.validate(product)) {
 			ProductDAO.updateProduct(product, id);
 		}

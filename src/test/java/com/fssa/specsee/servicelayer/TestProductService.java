@@ -1,5 +1,6 @@
 package com.fssa.specsee.servicelayer;
 
+import java.net.MalformedURLException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ import com.fssa.specsee.servicelayer.ProductService;
 /*
  * Define the test class for ProductService
  */
-class TestProductService {
+class TestProductService { 
 	/*
 	 * Method to create a valid product for testing
 	 */
@@ -36,7 +37,7 @@ class TestProductService {
 	 * Test method for adding a valid product
 	 */
 	@Test
-	void testAddProduct() throws InvalidProductException {
+	void testAddProduct() throws InvalidProductException, MalformedURLException {
 
 		Assertions.assertTrue(ProductService.addProduct(validProduct()));
 
@@ -54,7 +55,7 @@ class TestProductService {
 	 * Test method for updating a product
 	 */
 	@Test
-	void testUpdateProduct() throws InvalidProductException, DAOException {
+	void testUpdateProduct() throws InvalidProductException, DAOException, MalformedURLException {
 
 		Assertions.assertTrue(ProductService.updateProduct(validProduct(), 0));
 	}

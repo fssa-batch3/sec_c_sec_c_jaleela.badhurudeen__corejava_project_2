@@ -29,6 +29,10 @@ public class ProductDAO {
 	public static void main(String[] args) {
 		/*
 		 * adding a side image url
+<<<<<<< Updated upstream
+=======
+		 * 
+>>>>>>> Stashed changes
 		 */
 		List<String> sideImgURL = new ArrayList<>();
 		sideImgURL.add(ProductValidateConstants.PRODUCT_VALIDIMAGE_URL);
