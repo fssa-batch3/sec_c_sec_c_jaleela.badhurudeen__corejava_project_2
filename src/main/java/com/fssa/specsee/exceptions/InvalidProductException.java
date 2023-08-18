@@ -1,6 +1,6 @@
 package com.fssa.specsee.exceptions;
 
-public class InvalidProductException extends Exception{
+public class InvalidProductException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 

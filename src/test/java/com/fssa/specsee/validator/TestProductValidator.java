@@ -24,17 +24,10 @@ class TestProductValidator {
 	 * Test method to validate a null product
 	 */
 	@Test
-<<<<<<< Updated upstream
-	void testProductValidator() throws InvalidProductException {
-		/*
-		 * Validate that ProductValidator throws an exception when a null product is
-		 * provided
-=======
 	void testProductValidator() throws InvalidProductException, MalformedURLException {
 		/*
 		 * Validate that ProductValidator throws an exception when a null product is
-		 * provided 
->>>>>>> Stashed changes
+		 * provided
 		 */
 		try {
 
@@ -122,11 +115,7 @@ class TestProductValidator {
 	 * test validation for valid product image url
 	 */
 	@Test
-<<<<<<< Updated upstream
-	void testValidProductImageURL() throws InvalidProductException {
-=======
-	void testValidProductImageURL() throws InvalidProductException,MalformedURLException {
->>>>>>> Stashed changes
+	void testValidProductImageURL() throws InvalidProductException, MalformedURLException {
 		Assertions
 				.assertTrue(ProductValidator.productImageURLValidator(ProductValidateConstants.PRODUCT_VALIDIMAGE_URL));
 
@@ -136,11 +125,7 @@ class TestProductValidator {
 	 * test for invalid product image url when it is null
 	 */
 	@Test
-<<<<<<< Updated upstream
-	void testInvalidProductImageURL() throws InvalidProductException {
-=======
 	void testInvalidProductImageURL() throws InvalidProductException, MalformedURLException {
->>>>>>> Stashed changes
 		try {
 			ProductValidator.productImageURLValidator(null);
 			Assertions.fail(ProductValidateErrors.PRODUCT_IMAGEURL_FAIL_MSG);

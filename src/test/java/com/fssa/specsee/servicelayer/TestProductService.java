@@ -17,13 +17,13 @@ import com.fssa.specsee.servicelayer.ProductService;
 /*
  * Define the test class for ProductService
  */
-class TestProductService { 
+class TestProductService {
 	/*
 	 * Method to create a valid product for testing
 	 */
 	public static Product validProduct() {
 		String arrr[] = { "http://example.com/image.jpg" };
-		List<String> sideImgURL = new ArrayList<String>(); 
+		List<String> sideImgURL = new ArrayList<String>();
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
