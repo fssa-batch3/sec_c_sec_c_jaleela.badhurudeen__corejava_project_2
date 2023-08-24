@@ -20,7 +20,7 @@ from products join product_side_images on products.productId = product_side_imag
 CREATE TABLE product_side_images (
   imageId INT AUTO_INCREMENT PRIMARY KEY,
   productId INT,
-  imageURL VARCHAR(255),
+  imageURL VARCHAR(255), 
   FOREIGN KEY (productId) REFERENCES products(productId) ON DELETE CASCADE
 );
 USE jaleela_badhurudeen_corejava_project;

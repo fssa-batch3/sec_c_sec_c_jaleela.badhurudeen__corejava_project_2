@@ -20,7 +20,7 @@ import com.fssa.specsee.validator.ProductValidateErrors;
 /*
  * Define the ProductDAO class
  */
-public class ProductDAO {
+public class ProductDAO { 
 
 	/*
 	 * main function

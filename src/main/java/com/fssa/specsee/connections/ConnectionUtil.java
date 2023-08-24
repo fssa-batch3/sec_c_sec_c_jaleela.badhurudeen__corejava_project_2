@@ -3,7 +3,6 @@ package com.fssa.specsee.connections;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-import io.github.cdimascio.dotenv.Dotenv;
 
 public class ConnectionUtil {
 	public static Connection getConnection() {
@@ -15,19 +14,14 @@ public class ConnectionUtil {
 		/*
 		 * Check if the application is running in a CI environment
 		 */
-		if (System.getenv("CI") != null) {
+		
 			/*
 			 * If CI environment, use environment variables for database connection
 			 */
 			url = System.getenv("DATABASE_HOST");
 			userName = System.getenv("DATABASE_USERNAME");
 			passWord = System.getenv("DATABASE_PASSWORD");
-		} else {
-			Dotenv env = Dotenv.load();
-			url = env.get("DATABASE_HOST");
-			userName = env.get("DATABASE_USERNAME");
-			passWord = env.get("DATABASE_PASSWORD");
-		}
+		
 
 		try {
 			/*

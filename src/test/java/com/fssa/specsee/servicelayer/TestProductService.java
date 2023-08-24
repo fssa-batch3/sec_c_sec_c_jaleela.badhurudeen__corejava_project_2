@@ -28,8 +28,8 @@ class TestProductService {
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
 		sideImgURL.add("https://iili.io/HrkUVp4.jpg");
-		Product product = new Product(1, "Rayan", "Light Yellow colored  Metalic glasses", ProductCategory.METALICS,
-				1150.0, "http://example.com/image.jpg", sideImgURL);
+		Product product = new Product(1, "RayanMay", "Blue with Yellow colored  computer glasses", ProductCategory.COMPUTER_GLASSES,
+				1000.0, "http://example.com/image.jpg", sideImgURL);
 		return product;
 	}
 
