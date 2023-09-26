@@ -1,7 +1,7 @@
 package com.fssa.specsee.validator;
 
 public class ProductValidateErrors {
-	/*
+	/**
 	 * Define constants for invalid product errors
 	 */
 	public static final String INVALID_PRODUCT_NULL = "Product cannot be null";
@@ -19,7 +19,7 @@ public class ProductValidateErrors {
 	public static final String INVALID_PRODUCT_EACHSIDEIMAGE_URL_NULL = "Product each side image URL cannot be null";
 	public static final String ENUM_ERROR = "failed";
 
-	/*
+	/**
 	 * Define test error messages
 	 */
 	public static final String PRODUCTNAMEFAILMSG = "Validate product name failed";
@@ -29,10 +29,13 @@ public class ProductValidateErrors {
 
 	public static final String CANNOT_ADD_PRODUCT = "you can't add product";
 
-	/*
+	/**
 	 * Define test service layer error messages
 	 */
 
 	public static final String TEST_INVALID_ADDPRODUCT_FAIL = "Invalid Add PRODUCT failed";
+	
+	
+
 
 }

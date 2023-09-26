@@ -10,19 +10,20 @@ import org.apache.commons.validator.routines.UrlValidator;
 import com.fssa.specsee.exceptions.InvalidProductException;
 import com.fssa.specsee.modelobjects.Product;
 
-/*
+/**
  * Define the ProductValidator class for validating product objects
  */
 public class ProductValidator {
 	private ProductValidator() {
-		/*
+		/**
 		 * private constructor
 		 */
 	}
 
-	/*
+	/**
 	 * Method to validate a Product object 
 	 */
+	
 	public static boolean validate(Product product) throws InvalidProductException, MalformedURLException {
 		if (product == null) {
 			throw new InvalidProductException(ProductValidateErrors.INVALID_PRODUCT_NULL);
@@ -37,15 +38,15 @@ public class ProductValidator {
 
 	}
 
-	/*
-	 * Method to validate product name
+	/**
+	 * Method to validate product name 
 	 */
 	public static boolean productNameValidator(String productName) throws InvalidProductException {
 
 		if (productName == null || "".equals(productName.trim())) {
 			throw new InvalidProductException(ProductValidateErrors.INVALID_PRODUCTNAME_NULL);
 		}
-		/*
+		/**
 		 * regex pattern for product name
 		 */
 		String nameregex = "^[a-zA-Z]{5,15}$";
@@ -62,7 +63,7 @@ public class ProductValidator {
 
 	}
 
-	/*
+	/**
 	 * Method to validate product description
 	 */
 	public static boolean productDescriptionValidator(String productDescription) throws InvalidProductException {
@@ -70,7 +71,7 @@ public class ProductValidator {
 			throw new InvalidProductException(ProductValidateErrors.INVALID_PRODUCTDESCRIPTION_NULL);
 		}
 
-		/*
+		/**
 		 * regex pattern for product description
 		 */
 		String descregex = "^[a-zA-Z\\s]{10,100}$";
@@ -85,7 +86,7 @@ public class ProductValidator {
 		}
 	}
 
-	/*
+	/**
 	 * Method to validate product price
 	 */
 	public static boolean productPriceValidator(double productPrice) throws InvalidProductException {
@@ -97,7 +98,7 @@ public class ProductValidator {
 		return true;
 	}
 
-	/*
+	/**
 	 * Method to validate product main image url
 	 */
 	public static boolean productImageURLValidator(String productImageURL)
@@ -106,7 +107,7 @@ public class ProductValidator {
 			throw new InvalidProductException(ProductValidateErrors.INVALID_PRODUCT_IMAGE_URL_NULL);
 		}
 
-		/*
+		/**
 		 * regex pattern to match url
 		 */
 		UrlValidator validator = new UrlValidator();
@@ -120,16 +121,16 @@ public class ProductValidator {
 		}
 
 		return true;
-		/*
+		/**
 		 * Return true if the URL is valid
 		 */
 	}
 
-	/*
+	/**
 	 * Method to validate a list of product side image URLs
 	 */
 
-	/*
+	/**
 	 * regex pattern to match url
 	 */
 	public static boolean isValidList(List<String> stringList) throws InvalidProductException,MalformedURLException {
@@ -138,13 +139,13 @@ public class ProductValidator {
 
 			throw new InvalidProductException(ProductValidateErrors.INVALID_PRODUCT_IMAGE_URL_NULL);
 		}
-		/*
+		/**
 		 * Regular expression pattern
 		 */
 		
 		String pattern = "(http)?s?:?(\\/\\/[^\"']*\\.(?:png|jpg|jpeg|gif|svg|webp))";
 		
-		/*
+		/**
 		 * Validate each string in the list
 		 */
 		for (String str : stringList) {
@@ -155,7 +156,7 @@ public class ProductValidator {
 
 		return true;
 
-		/*
+		/**
 		 * All strings match the pattern
 		 */
 	}

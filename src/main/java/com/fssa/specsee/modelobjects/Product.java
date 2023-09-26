@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.fssa.specsee.enums.ProductCategory;
 
-/*
+/**
  *  Define the Product class to model product objects
  */
 public class Product {
@@ -12,11 +12,11 @@ public class Product {
 	private int productId;
 	private String productName;
 	private String productDescription;
-	private ProductCategory productCatagory;
+	private ProductCategory productCategory;
 	private double productPrice;
 	private String productMainImageUrl;
 	private List<String> productSideImageURLs;
-	/*
+	/**
 	 * Define a parameterized constructor to initialize product details
 	 */
 
@@ -26,7 +26,7 @@ public class Product {
 		this.productId = productId;
 		this.productName = productName;
 		this.productDescription = productDescription;
-		this.productCatagory = productCatagory;
+		this.productCategory = productCatagory;
 		this.productPrice = productPrice;
 		this.productMainImageUrl = productMainImageUrl;
 		this.productSideImageURLs = productSideImageURLs;
@@ -36,7 +36,7 @@ public class Product {
 		// TODO Auto-generated constructor stub
 	}
 
-	/*
+	/**
 	 * Define getter and setter methods for each field
 	 */
 	public int getProductId() {
@@ -64,11 +64,11 @@ public class Product {
 	}
 
 	public ProductCategory getProductCatagory() {
-		return productCatagory;
+		return productCategory;
 	}
 
 	public void setProductCatagory(ProductCategory productCatagory) {
-		this.productCatagory = productCatagory;
+		this.productCategory = productCatagory;
 	}
 
 	public double getProductPrice() {
@@ -94,5 +94,15 @@ public class Product {
 	public void setProductSideImageURLs(List<String> productSideImageURLs) {
 		this.productSideImageURLs = productSideImageURLs;
 	}
+
+	@Override
+	public String toString() {
+		return "Product [productId=" + productId + ", productName=" + productName + ", productDescription="
+				+ productDescription + ", productCatagory=" + productCategory + ", productPrice=" + productPrice
+				+ ", productMainImageUrl=" + productMainImageUrl + ", productSideImageURLs=" + productSideImageURLs
+				+ "]";
+	}
+	
+	
 
 }

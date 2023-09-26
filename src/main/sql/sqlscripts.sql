@@ -25,3 +25,8 @@ CREATE TABLE product_side_images (
 );
 USE jaleela_badhurudeen_corejava_project;
 select * from product_side_images;
+
+SELECT * FROM jaleela_badhurudeen_corejava_project.products;
+Alter table products add CONSTRAINT productCategory CHECK (productCategory IN ('computer_glasses', 'sun_glasses','power_glasses','contact_lens','metalics','rectangle','pilot'));
+INSERT INTO your_table_name (productName, productDescription, productPrice, productMainImageUrl, productCategory)
+VALUES ('Mayond', 'Vilot Round Type Computer Glass', 1199, 'https://iili.io/H8P04Yg.webp', 'sun_glasses');

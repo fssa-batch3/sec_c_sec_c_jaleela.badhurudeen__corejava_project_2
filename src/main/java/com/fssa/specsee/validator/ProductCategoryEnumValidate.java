@@ -4,11 +4,11 @@ import com.fssa.specsee.enums.ProductCategory;
 import com.fssa.specsee.exceptions.InvalidProductException;
 
 public class ProductCategoryEnumValidate {
-	/*
+	/**
 	 * create a validation for product category
 	 */
 	private ProductCategoryEnumValidate() {
-		/*
+		/**
 		 * default constructor
 		 */
 	}
@@ -18,12 +18,6 @@ public class ProductCategoryEnumValidate {
 			throw new InvalidProductException(ProductValidateErrors.ENUM_ERROR);
 		}
 
-		for (ProductCategory cat : ProductCategory.values()) {
-			if (!(cat.getCat().equalsIgnoreCase(category))) {
-
-				throw new InvalidProductException(ProductValidateErrors.ENUM_ERROR);
-			}
-		}
 		return true;
 	}
 

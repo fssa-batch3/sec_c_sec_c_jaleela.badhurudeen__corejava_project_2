@@ -1,30 +1,30 @@
 package com.fssa.specsee.validator;
 
 public class ProductValidateConstants {
-	/*
+	/**
 	 * Define constants for product prices
 	 */
 	public static final double PRODUCT_PRICE = 500;
 	public static final double PRODUCT_VALID_PRICE = 1000;
 	public static final int PRODUCT_INVALID_PRICE = 100;
-	/*
+	/**
 	 * Define constants for product names
 	 */
 	public static final String PRODUCT_VALID_NAME = "Nerdlane";
 	public static final String PRODUCT_INVALID_NAME = "NeW";
-	/*
+	/**
 	 * Define constants for product descriptions
 	 */
 	public static final String PRODUCT_VALID_DESCRIPTION = "Blue and Black color rectangle type computer glass";
 	public static final String PRODUCT_INVALID_DESCRIPTION = "Blue";
 
-	/*
+	/**
 	 * Define constants for product image URL
 	 */
 	public static final String PRODUCT_VALIDIMAGE_URL = "https://iili.io/HrkUVp4.jpg";
 	public static final String PRODUCT_INVALIDIMAGE_URL = "Jpg";
 
-	/*
+	/**
 	 * Define constants for String messages when we try to print some message
 	 */
 
@@ -35,5 +35,11 @@ public class ProductValidateConstants {
 	public static final String PRODUCT_IMAGEURL_SYSOUT_MSG = "product_main_image_url: ";
 	public static final String PRODUCT_CATEGORY_SYSOUT_MSG = "product category: ";
 	public static final String PRODUCT_SIDEIMAGEURL_SYSOUT_MSG = "product sideimage1: ";
+	// regex pattern
+	
+	 public static final String EMAIL_REGEX = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+[a-zA-Z.-]+$";
+	    public static final String USERNAME_REGEX = "^[a-zA-Z ]+$";
+	    public static final String PASS_REGEX = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8,20}$";
+
 
 }
