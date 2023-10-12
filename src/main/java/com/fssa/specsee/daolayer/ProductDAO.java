@@ -120,6 +120,8 @@ public class ProductDAO {
 					preparedStatement.executeUpdate();
 				}
 			}
+			
+			
 			return true;
 		} catch (SQLException e) {
 			throw new InvalidProductException("Error in adding  image urls ", e);
@@ -127,11 +129,13 @@ public class ProductDAO {
 
 	}
 
+	
+	
 	//
 	public static List<String> getProductSideImageUrls(int productId) throws DAOException, SQLException {
 		try (Connection connection = ConnectionUtil.getConnection()) {
 			List<String> urlList = new ArrayList<>();
-			String query = "SELECT imageURL FROM specsee.product_side_images WHERE productID = ?";
+			String query = "SELECT imageURL FROM product_side_images WHERE productID = ?";
 			try (PreparedStatement pst = connection.prepareStatement(query)) {
 				pst.setInt(1, productId);
 				try (ResultSet rs = pst.executeQuery()) {

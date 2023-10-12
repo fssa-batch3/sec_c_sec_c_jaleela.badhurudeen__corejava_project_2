@@ -11,6 +11,7 @@ public class ConnectionUtil {
 		String url;
 		String userName;
 		String passWord;
+		
 		/**
 		 * Check if the application is running in a CI environment
 		 */
@@ -18,14 +19,14 @@ public class ConnectionUtil {
 			/**
 			 * If CI environment, use environment variables for database connection
 			 */
-//			url = System.getenv("DATABASE_HOST");
-//			userName = System.getenv("DATABASE_USERNAME");
-//			passWord = System.getenv("DATABASE_PASSWORD");
-			
-			url = "jdbc:mysql://localhost:3306/specsee";
-			userName = "root";
-			passWord = "123456";
-		
+		url = System.getenv("DATABASE_HOST");
+		userName = System.getenv("DATABASE_USERNAME");
+			passWord = System.getenv("DATABASE_PASSWORD");
+//			
+//			url = "jdbc:mysql://localhost:3306/specsee";
+//			userName = "root";
+//			passWord = "123456";
+//		
 		try {
 			/**
 			 * Load the MySQL JDBC driver class

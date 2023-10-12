@@ -30,7 +30,7 @@ class TestProductService {
 		sideImgURL.add("https://iili.io/H8P54Yx.webp");
 		sideImgURL.add("https://iili.io/H8P5lII.webp");
 		Product product = new Product(1, "Lenzkart", "Blue with Grey color computer glass",
-				ProductCategory.computer_glasses, 2000.0, "https://iili.io/H8P5lII.webp", sideImgURL);
+				ProductCategory.contact_lens, 2000.0, "https://iili.io/H8P5lII.webp", sideImgURL);
 		return product;
 	}
 

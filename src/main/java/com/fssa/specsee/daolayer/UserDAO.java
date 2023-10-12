@@ -120,6 +120,7 @@ public class UserDAO {
 						user.setPhoneNumber(rs.getString("phoneNumber"));
 						user.setUserAddress(rs.getString("userAddress"));
 
+						Logger.info(user);
 						return user;
 					}
 				}
@@ -207,6 +208,15 @@ public class UserDAO {
 		} catch (SQLException e) {
 			throw new DAOException("Error updating user profile: " + e.getMessage());
 		}
+	}
+	
+	public static void main(String[] args) throws DAOException {
+		UserDAO userDao = new UserDAO();
+
+		userDao.emailExists("bala@gmail.com");
+		
+		System.out.println(	userDao.emailExists("l@gmail.com"));
+		
 	}
 
 }
